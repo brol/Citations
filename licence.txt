@@ -1,0 +1,7 @@
+Ce plugin est sous licence Creative Commons by-nc-sa :
+	http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
+		* Paternité
+		* Pas d'Utilisation Commerciale
+		* Partage des Conditions Initiales à l'Identique
+
+Les fichiers et contenu propre à la plateforme Dotclear 2 restent sa propriété.

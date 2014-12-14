@@ -1,0 +1,145 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: brol <contact@brol.info>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+
+msgid "Citation manager"
+msgstr "Gestionnaire de citations"
+
+# mise à jour
+msgid "Read the post."
+msgstr "Lire le billet."
+
+msgid "Installer."
+msgstr "Installeur."
+
+msgid "post"
+msgstr "billet"
+
+msgid "No new version available."
+msgstr "Pas de nouvelle version."
+
+msgid "New version available:"
+msgstr "Nouvelle version disponible :"
+
+# les onglets
+msgid "Settings"
+msgstr "Paramètres"
+
+msgid "Usage"
+msgstr "Utilisation"
+
+msgid "About"
+msgstr "A propos"
+
+msgid "List"
+msgstr "Liste"
+
+# onglet settings
+msgid "Plugin state"
+msgstr "Etat du plugin"
+
+msgid "active / inactive"
+msgstr "activé / désactivé"
+
+msgid "Save"
+msgstr "Enregistrer"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Check for plugin update"
+msgstr "Vérification pour une nouvelle version"
+
+msgid "Settings updated."
+msgstr "Paramètres mis à jour."
+
+msgid "Defaults"
+msgstr "Défauts"
+
+msgid "Import/Export datas"
+msgstr "Import/Export des données"
+
+msgid "Export"
+msgstr "Exporter"
+
+msgid "Import"
+msgstr "Importer"
+
+msgid "Datas exported."
+msgstr "Données exportées."
+
+msgid "Datas imported."
+msgstr "Données importées."
+
+msgid "This blog only"
+msgstr "Pour ce blog uniquement"
+
+msgid "All datas"
+msgstr "Toutes les données"
+
+msgid "Check"
+msgstr "Vérifier"
+
+# onglet: usage
+msgid "Usage"
+msgstr "Utilisation"
+
+msgid "Change settings:"
+msgstr "Modifier les paramètres :"
+
+msgid "Clic here to edit your settings."
+msgstr "Cliquez ici pour modifier vos paramètres."
+
+msgid "Widget manager:"
+msgstr "Gestionnaire de widgets :"
+
+msgid "Clic here to edit your widgets."
+msgstr "Cliquez ici pour modifier les widgets."
+
+msgid "Add a citation"
+msgstr "Ajouter une citation"
+
+msgid "Edit a citation"
+msgstr "Modifier une citation"
+
+msgid "Nothing to do."
+msgstr "Rien à faire."
+
+# onglet: about
+msgid "Authors"
+msgstr "Auteurs"
+
+msgid "Usefull informations"
+msgstr "Informations utiles"
+
+msgid "Support:"
+msgstr "Support :"
+
+msgid "Clic here to go to the support."
+msgstr "cliquez ici pour aller sur le support."
+
+msgid "No citation deleted."
+msgstr "Aucune citation supprimée"
+
+msgid "Citation(s) successfully deleted."
+msgstr "Citation(s) supprimée(s) avec succès."
+
+msgid "Files:"
+msgstr "Fichiers :"
+
+msgid "Read autheurs.txt and changelog.txt in the doc folder."
+msgstr "Lisez les fichiers auteurs.txt et changelog.txt du répertoire doc."
+
+msgid "Citation added."
+msgstr "Citation ajoutée."
+
+msgid "Citation updated."
+msgstr "Citation mise à jour."

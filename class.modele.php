@@ -287,8 +287,8 @@ class dcCitations
     {
         if (is_array($citation))
             return
-			'<p><span class="contenu">'.$citation['content'].'</span>'.
-			'<span class="auteur">'.$citation['author'].'</span></p>';
+			'<p class="contenu">'.$citation['content'].'</p>'.
+			'<p class="auteur">'.$citation['author'].'</p>';
         else
             return '';
 	}

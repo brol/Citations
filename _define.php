@@ -15,7 +15,7 @@ $this->registerModule(
 	/* Name */			"Citations",
 	/* Description*/		"Gestionnaire de citations",
 	/* Author */		"Olivier Le Bris, Pierre Van Glabeke",
-	/* Version */		"1.8",
+	/* Version */		"1.8.1",
 	/* Properties */
 	array(
 		'permissions' => 'usage,contentadmin',

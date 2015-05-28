@@ -1,2 +1,2 @@
-.citations .contenu {display:block;}
-.citations .auteur {float:right;font-style:italic;}
+.citations .contenu {margin-bottom:0;}
+.citations .auteur {text-align:right;font-style:italic;margin-top:0;}

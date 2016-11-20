@@ -143,3 +143,6 @@ msgstr "Citation ajoutée."
 
 msgid "Citation updated."
 msgstr "Citation mise à jour."
+
+msgid "Displaying a random quote"
+msgstr "Affichage aléatoire d'une citation"

@@ -42,8 +42,8 @@ class dcCitations
 		global $core;
 		try
 		{
-			$blog = &$core->blog;
-			$con = &$core->con;
+			$blog = $core->blog;
+			$con = $core->con;
 
 			// requète sur les données et renvoi null si erreur
 			$strReq =
@@ -65,8 +65,8 @@ class dcCitations
 		global $core;
 		try
 		{
-			$blog = &$core->blog;
-			$con = &$core->con;
+			$blog = $core->blog;
+			$con = $core->con;
 			$blogid = (string)$blog->id;
 
 			// requète sur les données et renvoi un entier
@@ -90,8 +90,8 @@ class dcCitations
 		global $core;
 		try
 		{
-			$blog = &$core->blog;
-			$con = &$core->con;
+			$blog = $core->blog;
+			$con = $core->con;
 			$blogid = (string)$blog->id;
 
 			// requète sur les données et renvoi un entier
@@ -124,8 +124,8 @@ class dcCitations
 			global $core;
 	        try
 	        {
-				$blog = &$core->blog;
-				$con = &$core->con;
+				$blog = $core->blog;
+				$con = $core->con;
 				$blogid = (string)$blog->id;
 
 				// requète sur les données et renvoi null si erreur
@@ -164,8 +164,8 @@ class dcCitations
 			global $core;
 	        try
 	        {
-				$blog = &$core->blog;
-				$con = &$core->con;
+				$blog = $core->blog;
+				$con = $core->con;
 				$blogid = $con->escape((string)$blog->id);
 
 				// nettoyage et sécurisation des données saisies
@@ -199,8 +199,8 @@ class dcCitations
 			global $core;
 	        try
 	        {
-				$blog = &$core->blog;
-				$con = &$core->con;
+				$blog = $core->blog;
+				$con = $core->con;
 				$blogid = $con->escape((string)$blog->id);
 
 				// nettoyage et sécurisation des données saisies
@@ -234,8 +234,8 @@ class dcCitations
 			global $core;
 	        try
 	        {
-				$blog = &$core->blog;
-				$con = &$core->con;
+				$blog = $core->blog;
+				$con = $core->con;
 				$blogid = $con->escape((string)$blog->id);
 
 				// requète sur les données et renvoi un booléen
@@ -258,8 +258,8 @@ class dcCitations
 		global $core;
 		try
 		{
-			$blog = &$core->blog;
-			$con = &$core->con;
+			$blog = $core->blog;
+			$con = $core->con;
 			$blogid = $con->escape((string)$blog->id);
 
 			// requète sur les données et renvoi null si erreur
@@ -287,8 +287,8 @@ class dcCitations
     {
         if (is_array($citation))
             return
-			'<p class="contenu">'.$citation['content'].'</p>'.
-			'<p class="auteur">'.$citation['author'].'</p>';
+			'<ul><li class="contenu">'.$citation['content'].'</li>'.
+			'<li class="auteur">'.$citation['author'].'</li></ul>';
         else
             return '';
 	}

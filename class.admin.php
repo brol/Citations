@@ -58,7 +58,7 @@ class adminCitations
 		global $core;
         try
         {
-	        $con = &$core->con;
+	        $con = $core->con;
 
 			$strReq =
 				'DROP TABLE '.
@@ -80,7 +80,7 @@ class adminCitations
 		global $core;
         try
         {
-			$blog = &$core->blog;
+			$blog = $core->blog;
 			$blogid = (string)$blog->id;
 
 			// générer le contenu du fichier à partir des données
@@ -187,8 +187,8 @@ class tabsCitations
 		global $core;
 		try
 		{
-	        $blog = &$core->blog;
-	        $auth = &$core->auth;
+	        $blog = $core->blog;
+	        $auth = $core->auth;
 
 			// paramétrage de l'état d'activation du plugin
 	        $pactive = '';
@@ -200,7 +200,7 @@ class tabsCitations
 			'<div class="fieldset">' .
 			'<h4>'.__('Plugin state').'</h4>'.
 				'<form action="plugin.php" method="post" name="state">'.
-           '<p>'.         $core->formNonce().
+           '<p>'.$core->formNonce().
 					form::hidden(array('p'),pluginCitations::pname()).
 					form::hidden(array('op'),'state').'</p>'.
           '<p>'.
@@ -216,7 +216,7 @@ class tabsCitations
 			'<div class="fieldset" style="display:none;">' .
 			'<h4>'.__('Settings').'</h4>'.
 				'<form action="plugin.php" method="post" name="settings">'.
-           '<p>'.         $core->formNonce().
+           '<p>'.$core->formNonce().
 					form::hidden(array('p'),pluginCitations::pname()).
 					form::hidden(array('op'),'settings').'</p>'.
 					'<p>'.

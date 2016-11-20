@@ -26,7 +26,9 @@ class dcWidgetCitations
 		global $core, $plugin_name;
         try
         {
-            $widgets->create(pluginCitations::pname(), __('Citations'), array('WidgetsCitations', 'widget'));
+            $widgets->create(pluginCitations::pname(), __('Citations'), array('WidgetsCitations', 'widget'),
+			null,
+			__('Displaying a random quote'));
 
 			// ATTENTION: modifier le nom du widget
             $widgets->citations->setting('title', __('Title:'), __('Citations'));

@@ -2,7 +2,7 @@
 # -- BEGIN LICENSE BLOCK ----------------------------------
 # This file is part of Citations, a plugin for Dotclear 2.
 #
-# Copyright (c) 2007-2015 Olivier Le Bris
+# Copyright (c) 2007-2010 Olivier Le Bris
 # http://phoenix.cybride.net/
 # Contributor : Pierre Van Glabeke
 #
@@ -61,4 +61,27 @@ function citationsDashboardFavorites($core,$favs)
 		'large-icon' => 'index.php?pf=citations/icon-big.png',
 		'permissions' => 'usage,contentadmin'
 	));
+}
+
+# Enregistrement des fonctions d'exportation
+$core->addBehavior('exportFull',array('citationsClass','exportFull'));
+$core->addBehavior('exportSingle',array('citationsClass','exportSingle'));
+
+class citationsClass
+{
+	# Full export behavior
+	public static function exportFull($core,$exp)
+	{
+		$exp->exportTable('citations');
+	}
+
+	# Single blog export behavior
+	public static function exportSingle($core,$exp,$blog_id)
+	{
+		$exp->export('citations',
+			'SELECT * '.
+			'FROM '.$core->prefix.'citations '.
+			'WHERE blog_id = "'.$blog_id.'"'
+		);
+	}
 }

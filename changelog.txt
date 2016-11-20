@@ -1,3 +1,8 @@
+1.9 - 01-03-2016 Pierre Van Glabeke
+* prise en compte de la table lors de l'exportation du blog
+* modifs html et css
+* activation du plugin toujours cassée...
+
 1.8 - 14-12-2014 Pierre Van Glabeke
 * ajout combo affichage widget (+ content only, class et hors ligne)
 * modifs cosmétiques dc2.7

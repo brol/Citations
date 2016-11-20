@@ -15,12 +15,12 @@ $this->registerModule(
 	/* Name */			"Citations",
 	/* Description*/		"Gestionnaire de citations",
 	/* Author */		"Olivier Le Bris, Pierre Van Glabeke",
-	/* Version */		"1.8.1",
+	/* Version */		"1.9",
 	/* Properties */
 	array(
 		'permissions' => 'usage,contentadmin',
 		'type' => 'plugin',
-		'dc_min' => '2.7',
+		'dc_min' => '2.9',
 		'support' => 'http://forum.dotclear.org/viewforum.php?id=16',
 		'details' => 'http://plugins.dotaddict.org/dc2/details/citations'
 		)

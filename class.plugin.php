@@ -111,7 +111,7 @@ class pluginCitations
 	    global $core;
         try
         {
-	        $blog = &$core->blog;
+	        $blog = $core->blog;
 			$blog->triggerBlog();
         }
 	    catch (Exception $e) { $core->error->add($e->getMessage()); }
@@ -138,9 +138,9 @@ class pluginCitations
 		global $core;
         try
         {
-	        $blog = &$core->blog;
+	        $blog = $core->blog;
 			$ns=self::ns();
-	        $settings = &$blog->settings->$ns;
+	        $settings = $blog->settings->$ns;
             return (string)$settings->get(self::prefix().$param);
         }
 	    catch (Exception $e) { $core->error->add($e->getMessage()); }
@@ -154,9 +154,9 @@ class pluginCitations
 		global $core;
         try
         {
-	        $blog = &$core->blog;
+	        $blog = $core->blog;
 			$ns=self::ns();
-	        $settings = &$blog->settings->$ns;
+	        $settings = $blog->settings->$ns;
             if (isset($settings->$param)) return true;
 			else return false;
         }
@@ -171,10 +171,10 @@ class pluginCitations
 		global $core;
         try
         {
-	        $blog = &$core->blog;
+	        $blog = $core->blog;
 			$ns=self::ns();
             $blog->settings->addNamespace($ns);
-	        $settings = &$blog->settings->$ns;
+	        $settings = $blog->settings->$ns;
             $settings->put((string)self::prefix().$param, (string)$val, 'string', null, true, $global);
         }
 	    catch (Exception $e) { $core->error->add($e->getMessage()); }
@@ -188,10 +188,10 @@ class pluginCitations
 		global $core;
         try
         {
-	        $blog = &$core->blog;
+	        $blog = $core->blog;
 			$ns=self::ns();
             $blog->settings->addNamespace($ns);
-	        $settings = &$blog->settings->$ns;
+	        $settings = $blog->settings->$ns;
             $settings->put((string)self::prefix().$param, (integer)$val, 'integer', null, true, $global);
         }
 	    catch (Exception $e) { $core->error->add($e->getMessage()); }
@@ -205,10 +205,10 @@ class pluginCitations
 		global $core;
         try
         {
-	        $blog = &$core->blog;
+	        $blog = $core->blog;
 			$ns=self::ns();
             $blog->settings->addNamespace($ns);
-	        $settings = &$blog->settings->$ns;
+	        $settings = $blog->settings->$ns;
             $settings->put((string) self::prefix().$param, (boolean)$val, 'boolean', null, true, $global);
         }
 	    catch (Exception $e) { $core->error->add($e->getMessage()); }
@@ -222,10 +222,10 @@ class pluginCitations
 		global $core;
         try
         {
-	        $blog = &$core->blog;
+	        $blog = $core->blog;
 			$ns=self::ns();
             $blog->settings->addNamespace($ns);
-	        $settings = &$blog->settings->$ns;
+	        $settings = $blog->settings->$ns;
             $settings->drop((string)self::prefix().$param);
         }
 	    catch (Exception $e) { $core->error->add($e->getMessage()); }

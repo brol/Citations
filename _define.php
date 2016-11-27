@@ -21,7 +21,7 @@ $this->registerModule(
 		'permissions' => 'usage,contentadmin',
 		'type' => 'plugin',
 		'dc_min' => '2.9',
-		'support' => 'http://forum.dotclear.org/viewforum.php?id=16',
+		'support' => 'https://github.com/brol/citations/issues',
 		'details' => 'http://plugins.dotaddict.org/dc2/details/citations'
 		)
 );

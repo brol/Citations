@@ -1,6 +1,6 @@
 # Language: Français
 # Module: citations - 1.9
-# Date: 2016-11-27 00:57:18
+# Date: 2016-11-27 02:01:27
 # Translated with translater 2016.08.20
 
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Project-Id-Version: citations 1.9\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-11-27T00:57:18+00:00\n"
+"PO-Revision-Date: 2016-11-27T02:01:27+00:00\n"
 "Last-Translator: brol\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,6 +19,10 @@ msgstr ""
 #: index.php:17
 msgid "Citation manager"
 msgstr "Gestionnaire de citations"
+
+#: _install.php:39
+msgid "Unable to install Citations."
+msgstr "Impossible d'installer Citations."
 
 #: _widgets.php:31
 msgid "Displaying a random quote"
@@ -78,6 +82,10 @@ msgstr "Fichiers :"
 msgid "Read autheurs.txt and changelog.txt in the doc folder."
 msgstr "Lisez les fichiers auteurs.txt et changelog.txt du répertoire doc."
 
+#: class.admin.php:305
+msgid "No citation for this blog."
+msgstr "Aucune citations pour ce blog."
+
 #: class.admin.php:372
 msgid "Edit a citation"
 msgstr "Modifier une citation"
@@ -85,6 +93,10 @@ msgstr "Modifier une citation"
 #: class.admin.php:383
 msgid "Add a citation"
 msgstr "Ajouter une citation"
+
+#: class.admin.php:389
+msgid "Not allowed."
+msgstr "Non autorisé."
 
 #: class.plugin.php:492
 msgid "No new version available."
@@ -110,9 +122,22 @@ msgstr "Installeur."
 msgid "Settings updated."
 msgstr "Paramètres mis à jour."
 
+#: index.php:94
+#: index.php:123
+msgid "Missing informations."
+msgstr "Informations manquantes."
+
+#: index.php:97
+msgid "Error adding citation."
+msgstr "Erreur lors de l'ajout de la citation."
+
 #: index.php:98
 msgid "Citation added."
 msgstr "Citation ajoutée."
+
+#: index.php:128
+msgid "Error updating citation."
+msgstr "Erreur lors de la modification de la citation."
 
 #: index.php:129
 msgid "Citation updated."

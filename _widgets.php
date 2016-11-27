@@ -2,7 +2,7 @@
 # -- BEGIN LICENSE BLOCK ----------------------------------
 # This file is part of Citations, a plugin for Dotclear 2.
 #
-# Copyright (c) 2007-2010 Olivier Le Bris
+# Copyright (c) 2007-2016 Olivier Le Bris
 # http://phoenix.cybride.net/
 # Contributor : Pierre Van Glabeke
 #

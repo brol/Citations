@@ -204,7 +204,7 @@ class tabsCitations
 					form::hidden(array('p'),pluginCitations::pname()).
 					form::hidden(array('op'),'state').'</p>'.
           '<p>'.
-						'<label class="classic" for="active">'.form::checkbox('active',1,$pactive).__('active / inactive').'</label>'.
+						'<label class="classic" for="active">'.form::checkbox('active',1,$pactive).__('Enable Citation manager').'</label>'.
 					'</p>'.
 					'<p>'.
 						'<input type="submit" value="'.__('Save').'" />'.

@@ -1,37 +1,142 @@
+# Language: Français
+# Module: citations - 1.9
+# Date: 2016-11-27 00:57:18
+# Translated with translater 2016.08.20
+
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: citations 1.9\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: brol <contact@brol.info>\n"
+"PO-Revision-Date: 2016-11-27T00:57:18+00:00\n"
+"Last-Translator: brol\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: _admin.php:26
+#: index.php:17
 msgid "Citation manager"
 msgstr "Gestionnaire de citations"
 
-# mise à jour
-msgid "Read the post."
-msgstr "Lire le billet."
+#: _widgets.php:31
+msgid "Displaying a random quote"
+msgstr "Affichage aléatoire d'une citation"
 
-msgid "Installer."
-msgstr "Installeur."
+#: class.admin.php:201
+msgid "Plugin state"
+msgstr "Etat du plugin"
 
-msgid "post"
-msgstr "billet"
+#: class.admin.php:207
+msgid "Enable Citation manager"
+msgstr "Activer le gestionnaire de citations"
 
+#: class.admin.php:217
+#: index.php:215
+msgid "Settings"
+msgstr "Paramètres"
+
+#: class.admin.php:223
+msgid "Defaults"
+msgstr "Défauts"
+
+#: class.admin.php:230
+msgid "Import/Export datas"
+msgstr "Import/Export des données"
+
+#: class.admin.php:235
+msgid "This blog only"
+msgstr "Pour ce blog uniquement"
+
+#: class.admin.php:236
+msgid "All datas"
+msgstr "Toutes les données"
+
+#: class.admin.php:263
+msgid "Authors"
+msgstr "Auteurs"
+
+#: class.admin.php:287
+msgid "Usefull informations"
+msgstr "Informations utiles"
+
+#: class.admin.php:289
+msgid "Support:"
+msgstr "Support :"
+
+#: class.admin.php:289
+#: class.admin.php:289
+msgid "Clic here to go to the support."
+msgstr "cliquez ici pour aller sur le support."
+
+#: class.admin.php:290
+msgid "Files:"
+msgstr "Fichiers :"
+
+#: class.admin.php:290
+msgid "Read autheurs.txt and changelog.txt in the doc folder."
+msgstr "Lisez les fichiers auteurs.txt et changelog.txt du répertoire doc."
+
+#: class.admin.php:372
+msgid "Edit a citation"
+msgstr "Modifier une citation"
+
+#: class.admin.php:383
+msgid "Add a citation"
+msgstr "Ajouter une citation"
+
+#: class.plugin.php:492
 msgid "No new version available."
 msgstr "Pas de nouvelle version."
 
+#: class.plugin.php:495
 msgid "New version available:"
 msgstr "Nouvelle version disponible :"
 
-# les onglets
-msgid "Settings"
-msgstr "Paramètres"
+#: class.plugin.php:499
+msgid "Read the post."
+msgstr "Lire le billet."
+
+#: class.plugin.php:499
+msgid "post"
+msgstr "billet"
+
+#: class.plugin.php:500
+msgid "Installer."
+msgstr "Installeur."
+
+#: index.php:62
+msgid "Settings updated."
+msgstr "Paramètres mis à jour."
+
+#: index.php:98
+msgid "Citation added."
+msgstr "Citation ajoutée."
+
+#: index.php:129
+msgid "Citation updated."
+msgstr "Citation mise à jour."
+
+#: index.php:149
+msgid "No citation deleted."
+msgstr "Aucune citation supprimée"
+
+#: index.php:150
+msgid "Citation(s) successfully deleted."
+msgstr "Citation(s) supprimée(s) avec succès."
+
+#: index.php:167
+msgid "Datas exported."
+msgstr "Données exportées."
+
+#: index.php:184
+msgid "Datas imported."
+msgstr "Données importées."
+
+#: index.php:216
+msgid "List"
+msgstr "Liste"
 
 msgid "Usage"
 msgstr "Utilisation"
@@ -39,58 +144,11 @@ msgstr "Utilisation"
 msgid "About"
 msgstr "A propos"
 
-msgid "List"
-msgstr "Liste"
-
-# onglet settings
-msgid "Plugin state"
-msgstr "Etat du plugin"
-
-msgid "active / inactive"
-msgstr "activé / désactivé"
-
-msgid "Save"
-msgstr "Enregistrer"
-
-msgid "Cancel"
-msgstr "Annuler"
-
 msgid "Check for plugin update"
 msgstr "Vérification pour une nouvelle version"
 
-msgid "Settings updated."
-msgstr "Paramètres mis à jour."
-
-msgid "Defaults"
-msgstr "Défauts"
-
-msgid "Import/Export datas"
-msgstr "Import/Export des données"
-
-msgid "Export"
-msgstr "Exporter"
-
-msgid "Import"
-msgstr "Importer"
-
-msgid "Datas exported."
-msgstr "Données exportées."
-
-msgid "Datas imported."
-msgstr "Données importées."
-
-msgid "This blog only"
-msgstr "Pour ce blog uniquement"
-
-msgid "All datas"
-msgstr "Toutes les données"
-
 msgid "Check"
 msgstr "Vérifier"
-
-# onglet: usage
-msgid "Usage"
-msgstr "Utilisation"
 
 msgid "Change settings:"
 msgstr "Modifier les paramètres :"
@@ -104,45 +162,6 @@ msgstr "Gestionnaire de widgets :"
 msgid "Clic here to edit your widgets."
 msgstr "Cliquez ici pour modifier les widgets."
 
-msgid "Add a citation"
-msgstr "Ajouter une citation"
-
-msgid "Edit a citation"
-msgstr "Modifier une citation"
-
 msgid "Nothing to do."
 msgstr "Rien à faire."
 
-# onglet: about
-msgid "Authors"
-msgstr "Auteurs"
-
-msgid "Usefull informations"
-msgstr "Informations utiles"
-
-msgid "Support:"
-msgstr "Support :"
-
-msgid "Clic here to go to the support."
-msgstr "cliquez ici pour aller sur le support."
-
-msgid "No citation deleted."
-msgstr "Aucune citation supprimée"
-
-msgid "Citation(s) successfully deleted."
-msgstr "Citation(s) supprimée(s) avec succès."
-
-msgid "Files:"
-msgstr "Fichiers :"
-
-msgid "Read autheurs.txt and changelog.txt in the doc folder."
-msgstr "Lisez les fichiers auteurs.txt et changelog.txt du répertoire doc."
-
-msgid "Citation added."
-msgstr "Citation ajoutée."
-
-msgid "Citation updated."
-msgstr "Citation mise à jour."
-
-msgid "Displaying a random quote"
-msgstr "Affichage aléatoire d'une citation"

@@ -9,4 +9,13 @@
 	- reconnectez vous sur l'interface d'administration de votre blog, puis:
 		* sélectionnez la page d'administration du plugins en choisissant celui-ci dans la liste des "Extensions"
 		* ou, paramétrez le widget du plugin par le gestionnaire approprié "Widgets de présentation"
-		
+
+
+* AUTEURS *
+
+Olivier Le Bris : http://olivier.cybride.net/
+
+* REMERCIEMENTS *
+
+Vincent TABARD (webmaster@balbinus.net),
+	pour le plugin Citations sous Dotclear 1

@@ -37,15 +37,16 @@ else $plugin_op = 'none';
 // action en fonction de l'opération
 switch ($plugin_op)
 {
-	// modification de l'état d'activation du plugin
-	case 'state':
+
+	// modification du paramétrage
+  case 'settings':
 	{
 		$plugin_tab = 'tab_settings';
 	}
 	break;
-
-	// modification du paramétrage
-	case 'settings':
+	
+	// modification de l'état d'activation du plugin
+ 	case 'state':
 	{
 		$plugin_tab = 'tab_settings';
 
@@ -57,8 +58,8 @@ switch ($plugin_op)
 	            pluginCitations::Inactivate();
 
 			// notification de modification au blog et redirection
-			pluginCitations::Trigger();
-			pluginCitations::redirect(pluginCitations::admin().'&amp;tab=settings&amp;msg='.rawurldecode(__('Settings updated.')));
+			$core->blog->triggerBlog();
+			pluginCitations::redirect(pluginCitations::admin().'&tab=settings&msg='.rawurldecode(__('Settings updated.')));
 		}
 	    catch (Exception $e) { $core->error->add($e->getMessage()); }
 	}

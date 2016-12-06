@@ -316,7 +316,7 @@ class dcCitations
 	================================================== */
 
 	/**
-	* affiche une citation aléatoire (formatté)
+	* affiche une citation aléatoire (formatée)
 	*/
     static public function tplRandom() { return '<?php echo dcCitations::randomFormat(); ?>'; }
 }

@@ -10,7 +10,6 @@
 # See LICENSE file or
 # http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
 # -- END LICENSE BLOCK ------------------------------------
-
 if (!defined('DC_RC_PATH')) { return; }
 
 // initialisation du widget

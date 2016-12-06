@@ -247,53 +247,6 @@ class tabsCitations
 	}
 
 	/**
-	* à propos du plugin
-	*/
-	static public function About()
-	{
-        echo
-		'<div class="fieldset">' .
-		'<h4>'.__('Why this plugin').'</h4>'.
-			__('I started to collect citations from many years now.').'<br />'.
-			__('When I started my blog, I looked for a way to show citations from a known list.').'<br />'.
-			__('Under Dotclear 1 there where already a plugin I used, but none under Dotclear 2.').'<br />'.
-			__('This is why I developped it.').
-		'</div>'.
-		'<div class="fieldset">' .
-		'<h4>'.__('Authors').'</h4>'.
-			'<ul>'.
-				'<li>'.'<a href="http://phoenix.cybride.net/" title="Olivier Le Bris">Olivier Le Bris</a>'.'</li>'.
-			'</ul>'.
-		'</div>'.
-		'<div class="fieldset">' .
-		'<h4>'.__('Licence').'</h4>'.
-			'<ul>'.
-				'<li>'.
-                    '<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/2.0/fr/88x31.png" /></a>'.
-				'</li>'.
-				'<li>'.
-                    __('This work is released under a ').'<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/">'.__('Creative Commons contract').'</a>.'.
-				'</li>'.
-			'</ul>'.
-		'</div>'.
-		'<div class="fieldset">' .
-		'<h4>'.__('Greets').'</h4>'.
-			'<ul>'.
-				'<li>'.'<a href="mailto:webmaster@balbinus.net" title="'.__('Vincent Tabard (plugin under Dotclear 1)').'">'.__('Vincent Tabard (plugin under Dotclear 1)').'</a>'.'</li>'.
-				'<li>'.__('All the peoples who tested it !').'</li>'.
-			'</ul>'.
-		'</div>'.
-		'<div class="fieldset">' .
-		'<h4>'.__('Usefull informations').'</h4>'.
-			'<ul>'.
-				'<li>'.__('Support:').' <a href="http://www.cybride.net/redirect/support/'.pluginCitations::pname().'" title="'.__('Clic here to go to the support.').'">'.__('Clic here to go to the support.').'</a>'.'</li>'.
-				'<li>'.__('Files:').' '.__('Read autheurs.txt and changelog.txt in the doc folder.').'</a>'.'</li>'.
-				'<li>'.__('Dotclear:').' <a href="http://www.dotclear.net/" title="'.__('Clic here to go to Dotclear.').'">'.__('Clic here to go to Dotclear.').'</a>'.'</li>'.
-			'</ul>'.
-		'</div>';
-	}
-
-	/**
 	* liste les citations du blog
 	*/
 	static public function ListBlog()

@@ -1,6 +1,6 @@
 # Language: Français
 # Module: citations - 1.9
-# Date: 2016-11-27 02:01:27
+# Date: 2016-12-06 15:54:32
 # Translated with translater 2016.08.20
 
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Project-Id-Version: citations 1.9\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-11-27T02:01:27+00:00\n"
+"PO-Revision-Date: 2016-12-06T15:54:32+00:00\n"
 "Last-Translator: brol\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,11 +20,18 @@ msgstr ""
 msgid "Citation manager"
 msgstr "Gestionnaire de citations"
 
+#: _admin.php:58
+#: _widgets.php:28
+#: _widgets.php:33
+#: index.php:25
+msgid "Citations"
+msgstr "Citations"
+
 #: _install.php:39
 msgid "Unable to install Citations."
 msgstr "Impossible d'installer Citations."
 
-#: _widgets.php:31
+#: _widgets.php:30
 msgid "Displaying a random quote"
 msgstr "Affichage aléatoire d'une citation"
 
@@ -34,7 +41,7 @@ msgstr "Etat du plugin"
 
 #: class.admin.php:207
 msgid "Enable Citation manager"
-msgstr "Activer le gestionnaire de citations"
+msgstr "Activer le Gestionnaire de citations"
 
 #: class.admin.php:217
 #: index.php:215
@@ -57,44 +64,24 @@ msgstr "Pour ce blog uniquement"
 msgid "All datas"
 msgstr "Toutes les données"
 
-#: class.admin.php:263
-msgid "Authors"
-msgstr "Auteurs"
-
-#: class.admin.php:287
-msgid "Usefull informations"
-msgstr "Informations utiles"
-
-#: class.admin.php:289
-msgid "Support:"
-msgstr "Support :"
-
-#: class.admin.php:289
-#: class.admin.php:289
-msgid "Clic here to go to the support."
-msgstr "cliquez ici pour aller sur le support."
-
-#: class.admin.php:290
-msgid "Files:"
-msgstr "Fichiers :"
-
-#: class.admin.php:290
-msgid "Read autheurs.txt and changelog.txt in the doc folder."
-msgstr "Lisez les fichiers auteurs.txt et changelog.txt du répertoire doc."
-
-#: class.admin.php:305
+#: class.admin.php:258
 msgid "No citation for this blog."
-msgstr "Aucune citations pour ce blog."
+msgstr "Aucune citation pour ce blog."
 
-#: class.admin.php:372
+#: class.admin.php:283
+#: class.admin.php:283
+msgid "Edit citation"
+msgstr "Modifier la citation"
+
+#: class.admin.php:325
 msgid "Edit a citation"
 msgstr "Modifier une citation"
 
-#: class.admin.php:383
+#: class.admin.php:336
 msgid "Add a citation"
 msgstr "Ajouter une citation"
 
-#: class.admin.php:389
+#: class.admin.php:342
 msgid "Not allowed."
 msgstr "Non autorisé."
 
@@ -162,31 +149,4 @@ msgstr "Données importées."
 #: index.php:216
 msgid "List"
 msgstr "Liste"
-
-msgid "Usage"
-msgstr "Utilisation"
-
-msgid "About"
-msgstr "A propos"
-
-msgid "Check for plugin update"
-msgstr "Vérification pour une nouvelle version"
-
-msgid "Check"
-msgstr "Vérifier"
-
-msgid "Change settings:"
-msgstr "Modifier les paramètres :"
-
-msgid "Clic here to edit your settings."
-msgstr "Cliquez ici pour modifier vos paramètres."
-
-msgid "Widget manager:"
-msgstr "Gestionnaire de widgets :"
-
-msgid "Clic here to edit your widgets."
-msgstr "Cliquez ici pour modifier les widgets."
-
-msgid "Nothing to do."
-msgstr "Rien à faire."
 

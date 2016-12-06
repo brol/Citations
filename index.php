@@ -10,8 +10,8 @@
 # See LICENSE file or
 # http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
 # -- END LICENSE BLOCK ------------------------------------
-
 if (!defined('DC_CONTEXT_ADMIN')) exit;
+
 dcPage::check('usage,admin');
 
 $page_title = __('Citation manager');

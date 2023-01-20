@@ -39,22 +39,21 @@ class dcCitations
 	*/
 	static public function getRawDatas($onlyblog = false)
 	{
-		global $core;
 		try
 		{
-			$blog = $core->blog;
-			$con = $core->con;
+			$blog = dcCore::app()->blog;
+			$con = dcCore::app()->con;
 
 			// requète sur les données et renvoi null si erreur
 			$strReq =
 				'SELECT *'.
-				' FROM '.$core->prefix.pluginCitations::pname();
+				' FROM '.dcCore::app()->prefix.pluginCitations::pname();
 			
 			$rs = $con->select($strReq);
 			if ($rs->isEmpty()) return null;
 			else return $rs;
 		}
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 
 	/**
@@ -62,24 +61,23 @@ class dcCitations
 	*/
 	static public function nextid()
 	{
-		global $core;
 		try
 		{
-			$blog = $core->blog;
-			$con = $core->con;
+			$blog = dcCore::app()->blog;
+			$con = dcCore::app()->con;
 			$blogid = (string)$blog->id;
 
 			// requète sur les données et renvoi un entier
 			$strReq =
 				'SELECT max(citation_id)'.
-				' FROM '.$core->prefix.pluginCitations::pname().
+				' FROM '.dcCore::app()->prefix.pluginCitations::pname().
 				' WHERE blog_id=\''.$blogid.'\'';
 				
 			$rs = $con->select($strReq);
 			if ($rs->isEmpty()) return 0;
 			else return ((integer)$rs->f(0)) +1;
 		}
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 
 	/**
@@ -87,24 +85,23 @@ class dcCitations
 	*/
 	static public function randomid()
 	{
-		global $core;
 		try
 		{
-			$blog = $core->blog;
-			$con = $core->con;
+			$blog = dcCore::app()->blog;
+			$con = dcCore::app()->con;
 			$blogid = (string)$blog->id;
 
 			// requète sur les données et renvoi un entier
 			$strReq =
     			'SELECT min(citation_id), max(citation_id)'.
-    			' FROM '.$core->prefix.pluginCitations::pname().
+    			' FROM '.dcCore::app()->prefix.pluginCitations::pname().
     			' WHERE blog_id=\''.$blogid.'\'';
 			
 			$rs = $con->select($strReq);
 			if ($rs->isEmpty()) return 0;
 			else return rand($rs->f(0), $rs->f(1));
 		}
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 
 	/**
@@ -121,17 +118,16 @@ class dcCitations
 		// récupère la citation
 		else
 		{
-			global $core;
 	        try
 	        {
-				$blog = $core->blog;
-				$con = $core->con;
+				$blog = dcCore::app()->blog;
+				$con = dcCore::app()->con;
 				$blogid = (string)$blog->id;
 
 				// requète sur les données et renvoi null si erreur
 	            $strReq =
 	    			'SELECT author,content' .
-	    			' FROM '.$core->prefix.pluginCitations::pname().
+	    			' FROM '.dcCore::app()->prefix.pluginCitations::pname().
 	    			' WHERE citation_id='.$id.' AND blog_id=\''.$blogid.'\'';
 	            
 				$rs = $con->select($strReq);
@@ -146,7 +142,7 @@ class dcCitations
 		            return $result;
 				}
 	        }
-		    catch (Exception $e) { $core->error->add($e->getMessage()); }
+		    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 		}
 	}
 
@@ -161,11 +157,10 @@ class dcCitations
 		// met à jour la citation
 		else
 		{
-			global $core;
 	        try
 	        {
-				$blog = $core->blog;
-				$con = $core->con;
+				$blog = dcCore::app()->blog;
+				$con = dcCore::app()->con;
 				$blogid = $con->escape((string)$blog->id);
 
 				// nettoyage et sécurisation des données saisies
@@ -174,14 +169,14 @@ class dcCitations
 
 				// requète sur les données et renvoi un booléen
 	            $strReq =
-	    			'INSERT INTO '.$core->prefix.pluginCitations::pname().
+	    			'INSERT INTO '.dcCore::app()->prefix.pluginCitations::pname().
 	    			' (citation_id, blog_id, author, content)'.
 	    			' VALUES (\''.self::nextid().'\', \''.$blogid.'\', \''.$author.'\', \''.$content.'\')';
 	            
 				if ($con->execute($strReq)) return true;
 	            else return false;
 	        }
-		    catch (Exception $e) { $core->error->add($e->getMessage()); }
+		    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 		}
 	}
 
@@ -196,11 +191,10 @@ class dcCitations
 		// met à jour la citation
 		else
 		{
-			global $core;
 	        try
 	        {
-				$blog = $core->blog;
-				$con = $core->con;
+				$blog = dcCore::app()->blog;
+				$con = dcCore::app()->con;
 				$blogid = $con->escape((string)$blog->id);
 
 				// nettoyage et sécurisation des données saisies
@@ -209,14 +203,14 @@ class dcCitations
 
 				// requète sur les données et renvoi un booléen
 	            $strReq =
-	    			'UPDATE '.$core->prefix.pluginCitations::pname().
+	    			'UPDATE '.dcCore::app()->prefix.pluginCitations::pname().
 	    			' SET author=\''.$author.'\', content=\''.$content.'\''.
 	    			' WHERE citation_id='.$id.' AND blog_id=\''.$blogid.'\'';
 	            
 				if ($con->execute($strReq)) return true;
 	            else return false;
 	        }
-		    catch (Exception $e) { $core->error->add($e->getMessage()); }
+		    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 		}
 	}
 
@@ -231,22 +225,21 @@ class dcCitations
 		// supprime la citation
 		else
 		{
-			global $core;
 	        try
 	        {
-				$blog = $core->blog;
-				$con = $core->con;
+				$blog = dcCore::app()->blog;
+				$con = dcCore::app()->con;
 				$blogid = $con->escape((string)$blog->id);
 
 				// requète sur les données et renvoi un booléen
 	            $strReq =
-	    			'DELETE FROM '.$core->prefix.pluginCitations::pname().
+	    			'DELETE FROM '.dcCore::app()->prefix.pluginCitations::pname().
 	    			' WHERE citation_id='.$id.' AND blog_id=\''.$blogid.'\'';
 	            
 				if ($con->execute($strReq)) return true;
 	            else return false;
 	        }
-		    catch (Exception $e) { $core->error->add($e->getMessage()); }
+		    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 		}
 	}
 
@@ -255,24 +248,23 @@ class dcCitations
 	*/
 	static public function getlist()
 	{
-		global $core;
 		try
 		{
-			$blog = $core->blog;
-			$con = $core->con;
+			$blog = dcCore::app()->blog;
+			$con = dcCore::app()->con;
 			$blogid = $con->escape((string)$blog->id);
 
 			// requète sur les données et renvoi null si erreur
 			$strReq =
 				'SELECT *'.
-				' FROM '.$core->prefix.pluginCitations::pname().
+				' FROM '.dcCore::app()->prefix.pluginCitations::pname().
 				' WHERE blog_id=\''.$blogid.'\'';
 			
 			$rs = $con->select($strReq);
 			if ($rs->isEmpty()) return null;
 			else return $rs;
 		}
-		catch (Exception $e) { $core->error->add($e->getMessage()); }
+		catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 
 	/**

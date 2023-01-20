@@ -15,28 +15,28 @@
 if (!defined('DC_CONTEXT_ADMIN')) exit;
 
 // chargement des librairies
-require_once dirname(__FILE__).'/class.plugin.php';
-require_once dirname(__FILE__).'/class.modele.php';
-require_once dirname(__FILE__).'/class.admin.php';
+require_once dirname(__FILE__).'/inc/class.plugin.php';
+require_once dirname(__FILE__).'/inc/class.modele.php';
+require_once dirname(__FILE__).'/inc/class.admin.php';
 
 // est-ce qu'on a besoin d'installer et est-ce qu'on peut le faire ?
 // on vérifie qu'il s'agit bien d'une version plus récente
-$versionnew = $core->plugins->moduleInfo(pluginCitations::pname(), 'version');
-$versionold = $core->getVersion(pluginCitations::pname());
+$versionnew = dcCore::app()->plugins->moduleInfo(pluginCitations::pname(), 'version');
+$versionold = dcCore::app()->getVersion(pluginCitations::pname());
 if (version_compare($versionold, $versionnew, '>=')) return;
 else
 {
 	// chargement des librairies
-	require_once dirname(__FILE__).'/class.admin.php';
+	require_once dirname(__FILE__).'/inc/class.admin.php';
 	if (adminCitations::Install())
 	{
-		$core->setVersion(pluginCitations::pname(), $versionnew);
+		dcCore::app()->setVersion(pluginCitations::pname(), $versionnew);
 		unset($versionnew, $versionold);
 		return true;		
 	}
 	else
 	{
-		$core->error->add(__('Unable to install Citations.'));
+		dcCore::app()->error->add(__('Unable to install Citations.'));
 		return false;
 	}
 }

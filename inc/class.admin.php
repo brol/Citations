@@ -1,19 +1,17 @@
 <?php
-# -- BEGIN LICENSE BLOCK ----------------------------------
-# This file is part of Citations, a plugin for Dotclear 2.
-#
-# Copyright (c) 2007-2016 Olivier Le Bris
-# http://phoenix.cybride.net/
-# Contributor : Pierre Van Glabeke
-#
-# Licensed under the Creative Commons by-nc-sa license.
-# See LICENSE file or
-# http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
-# -- END LICENSE BLOCK ------------------------------------
+/**
+ * @brief Citations, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @author Olivier Le Bris, Pierre Van Glabeke and contributors
+ *
+ * @copyright http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
+ */
 
-/** ==================================================
-	administration
-================================================== */
+/** administration */
+
 if (!defined('DC_RC_PATH')) {return;}
 
 class adminCitations
@@ -27,17 +25,16 @@ class adminCitations
 		if (!dcCitations::isAllowed()) return false;
 
 		// création du schéma
-		global $core;
         try
         {
 			// création du schéma de la table
-		    $_s = new dbStruct($core->con, $core->prefix);
+		    $_s = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
 		    require dirname(__FILE__).'/db-schema.php';
 
-		    $si = new dbStruct($core->con, $core->prefix);
+		    $si = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
 		    $changes = $si->synchronize($_s);
 		}
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 
 		// activation des paramètres par défaut
 		pluginCitations::defaultsSettings();
@@ -55,18 +52,17 @@ class adminCitations
 		pluginCitations::Export(false);
 
 		// suppression du schéma
-		global $core;
         try
         {
-	        $con = $core->con;
+	        $con = dcCore::app()->con;
 
 			$strReq =
 				'DROP TABLE '.
-				$core->prefix.pluginCitations::pname();
+				dcCore::app()->prefix.pluginCitations::pname();
 
 			$rs = $con->execute($strReq);
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 
 		// suppression des paramètres par défaut
 		pluginCitations::deleteSettings();
@@ -77,18 +73,17 @@ class adminCitations
 	*/
 	static public function Export($onlyblog = true, $outfile = null)
 	{
-		global $core;
         try
         {
-			$blog = $core->blog;
+			$blog = dcCore::app()->blog;
 			$blogid = (string)$blog->id;
 
 			// générer le contenu du fichier à partir des données
 			if (isset($outfile)) $filename = $outfile;
 			else
 			{
-				if ($onlyblog) $filename = $core->blog->public_path.'/'.$blogid.'-'.pluginCitations::pname().'.dat';
-				else $filename = $core->blog->public_path.'/'.pluginCitations::pname().'.dat';
+				if ($onlyblog) $filename = dcCore::app()->blog->public_path.'/'.$blogid.'-'.pluginCitations::pname().'.dat';
+				else $filename = dcCore::app()->blog->public_path.'/'.pluginCitations::pname().'.dat';
 			}
 
 			$content = '';
@@ -114,7 +109,7 @@ class adminCitations
 			// écrire le contenu dans le fichier
 			@file_put_contents($filename, $content);
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
  	}
 
 	/**
@@ -122,15 +117,14 @@ class adminCitations
 	*/
 	static public function Import($onlyblog = true, $infile = null)
 	{
-		global $core;
         try
         {
 			// lire le contenu du fichier à partir des données
 			if (isset($infile)) $filename = $infile;
 			else
 			{
-				if ($onlyblog) $filename = $core->blog->public_path.'/'.$blogid.'-'.pluginCitations::pname().'.dat';
-				else $filename = $core->blog->public_path.'/'.pluginCitations::pname().'.dat';
+				if ($onlyblog) $filename = dcCore::app()->blog->public_path.'/'.$blogid.'-'.pluginCitations::pname().'.dat';
+				else $filename = dcCore::app()->blog->public_path.'/'.pluginCitations::pname().'.dat';
 			}
 
 			// ouverture du fichier
@@ -166,7 +160,7 @@ class adminCitations
 				else return true;
 			}
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 }
 
@@ -184,11 +178,10 @@ class tabsCitations
 		// prise en compte du plugin installé
 		if (!dcCitations::isInstalled()) return;
 
-		global $core;
 		try
 		{
-	        $blog = $core->blog;
-	        $auth = $core->auth;
+	        $blog = dcCore::app()->blog;
+	        $auth = dcCore::app()->auth;
 
 			// paramétrage de l'état d'activation du plugin
 	        $pactive = '';
@@ -200,7 +193,7 @@ class tabsCitations
 			'<div class="fieldset">' .
 			'<h4>'.__('Plugin state').'</h4>'.
 				'<form action="plugin.php" method="post" name="state">'.
-           '<p>'.$core->formNonce().
+           '<p>'.dcCore::app()->formNonce().
 					form::hidden(array('p'),pluginCitations::pname()).
 					form::hidden(array('op'),'state').'</p>'.
           '<p>'.
@@ -216,7 +209,7 @@ class tabsCitations
 			'<div class="fieldset" style="display:none;">' .
 			'<h4>'.__('Settings').'</h4>'.
 				'<form action="plugin.php" method="post" name="settings">'.
-           '<p>'.$core->formNonce().
+           '<p>'.dcCore::app()->formNonce().
 					form::hidden(array('p'),pluginCitations::pname()).
 					form::hidden(array('op'),'settings').'</p>'.
 					'<p>'.
@@ -229,7 +222,7 @@ class tabsCitations
 			'<div class="fieldset" style="display:none;">' .
 			'<h4>'.__('Import/Export datas').'</h4>'.
 				'<form action="plugin.php" method="post" name="impexp">'.
-					'<p>'.$core->formNonce().
+					'<p>'.dcCore::app()->formNonce().
 					form::hidden(array('p'),pluginCitations::pname()).
 					form::hidden(array('op'),'export').
 					'<label class="classic">'.form::radio(array('type'),'blog',(!$sadmin) ? true : false).__('This blog only').'</label><br />'.
@@ -243,7 +236,7 @@ class tabsCitations
 			'</div>';
 			
 		}
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 
 	/**
@@ -258,12 +251,11 @@ class tabsCitations
         if (!is_object($datas)) echo __('No citation for this blog.');
         else
         {
-			global $core;
 
 			// début du tableau et en-têtes
             echo
 			'<form action="plugin.php" method="post" name="listblog">' .
-				'<p>'.$core->formNonce().
+				'<p>'.dcCore::app()->formNonce().
 				form::hidden(array('p'),pluginCitations::pname()).
 				form::hidden(array('op'),'remove').
 				form::hidden(array('id'),'').'</p>'.
@@ -307,7 +299,6 @@ class tabsCitations
 		// prise en compte du plugin installé
 		if (!pluginCitations::isInstalled()) return;
 
-		global $core;
 		try
 		{
 			$allowed = true;
@@ -345,7 +336,7 @@ class tabsCitations
 				'<div class="fieldset">'.
 					'<h4>'.$form_title.'</h4>'.
 					'<form action="plugin.php" method="post" name="addedit">'.
-						'<p>'.$core->formNonce().
+						'<p>'.dcCore::app()->formNonce().
 						form::hidden(array('p'),pluginCitations::pname()).
 						form::hidden(array('op'),$form_op).
 						$form_id.'</p>'.
@@ -363,6 +354,6 @@ class tabsCitations
 					'</form>'.
 				'</div>';
 			}
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 }

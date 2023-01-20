@@ -1,86 +1,95 @@
 <?php
-# -- BEGIN LICENSE BLOCK ----------------------------------
-# This file is part of Citations, a plugin for Dotclear 2.
-#
-# Copyright (c) 2007-2016 Olivier Le Bris
-# http://phoenix.cybride.net/
-# Contributor : Pierre Van Glabeke
-#
-# Licensed under the Creative Commons by-nc-sa license.
-# See LICENSE file or
-# http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
-# -- END LICENSE BLOCK ------------------------------------
+/**
+ * @brief Citations, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @author Olivier Le Bris, Pierre Van Glabeke and contributors
+ *
+ * @copyright http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
+ */
 
 // filtrage des droits
 if (!defined('DC_CONTEXT_ADMIN')) exit;
 
-// ajout des comportements
-$core->addBehavior('pluginsBeforeDelete', array('dcBehaviorsCitations', 'pluginsBeforeDelete'));
+l10n::set(dirname(__FILE__).'/locales/'.dcCore::app()->lang.'/admin');
 
+// ajout des comportements
+dcCore::app()->addBehavior('pluginsBeforeDelete', array('dcBehaviorsCitations', 'pluginsBeforeDelete'));
 
 // chargement des librairies
-require_once dirname(__FILE__).'/class.plugin.php';
+require_once dirname(__FILE__).'/inc/class.plugin.php';
 require_once dirname(__FILE__).'/_widgets.php';
 
-// intégration au menu
-$_menu['Blog']->addItem(__('Citation manager'), 'plugin.php?p='.pluginCitations::pname(), pluginCitations::urldatas().'/icon.png',
-    preg_match('/plugin.php\?p='.pluginCitations::pname().'(&.*)?$/', $_SERVER['REQUEST_URI']),
-    $core->auth->check('usage,admin', $core->blog->id));
+// Admin sidebar menu
+dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
+    __('Citation manager'),
+    dcCore::app()->adminurl->get('admin.plugin.' . basename(__DIR__)),
+    dcPage::getPF(basename(__DIR__) . '/icon.png'),
+    preg_match(
+        '/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.' . basename(__DIR__))) . '(&.*)?$/',
+        $_SERVER['REQUEST_URI']
+    ),
+    dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
+		dcAuth::PERMISSION_USAGE,
+        dcAuth::PERMISSION_CONTENT_ADMIN,
+    ]), dcCore::app()->blog->id)
+);
 
 // définition des comportements	
 class dcBehaviorsCitations
 {
-
 	/**
 	* avant suppression du plugin par le gestionnaire, on le déinstalle proprement
 	*/
     public static function pluginsBeforeDelete($plugin)
     {
-		global $core;
         try
         {
             $name = (string) $plugin['name'];
             if (strcmp($name, pluginCitations::pname()) == 0)
             {
-                require dirname(__FILE__).'/class.admin.php';
+                require dirname(__FILE__).'/inc/class.admin.php';
                 adminCitations::Uninstall();
             }
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
     }
 }
 
-$core->addBehavior('adminDashboardFavorites','citationsDashboardFavorites');
-
-function citationsDashboardFavorites($core,$favs)
-{
-	$favs->register('citations', array(
-		'title' => __('Citations'),
-		'url' => 'plugin.php?p=citations',
-		'small-icon' => 'index.php?pf=citations/icon.png',
-		'large-icon' => 'index.php?pf=citations/icon-big.png',
-		'permissions' => 'usage,contentadmin'
-	));
-}
+// Admin dashbaord favorite
+dcCore::app()->addBehavior('adminDashboardFavoritesV2', function ($favs) {
+    $favs->register(basename(__DIR__), [
+        'title'       => __('Citations'),
+        'url'         => dcCore::app()->adminurl->get('admin.plugin.' . basename(__DIR__)),
+        'small-icon'  => dcPage::getPF(basename(__DIR__) . '/icon.png'),
+        'large-icon'  => dcPage::getPF(basename(__DIR__) . '/icon-big.png'),
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_USAGE,
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]),
+    ]);
+});
 
 # Enregistrement des fonctions d'exportation
-$core->addBehavior('exportFull',array('citationsClass','exportFull'));
-$core->addBehavior('exportSingle',array('citationsClass','exportSingle'));
+dcCore::app()->addBehavior('exportFull',array('citationsClass','exportFull'));
+dcCore::app()->addBehavior('exportSingle',array('citationsClass','exportSingle'));
 
 class citationsClass
 {
 	# Full export behavior
-	public static function exportFull($core,$exp)
+	public static function exportFull($exp)
 	{
 		$exp->exportTable('citations');
 	}
 
 	# Single blog export behavior
-	public static function exportSingle($core,$exp,$blog_id)
+	public static function exportSingle($exp,$blog_id)
 	{
 		$exp->export('citations',
 			'SELECT * '.
-			'FROM '.$core->prefix.'citations '.
+			'FROM '.dcCore::app()->prefix.'citations '.
 			'WHERE blog_id = "'.$blog_id.'"'
 		);
 	}

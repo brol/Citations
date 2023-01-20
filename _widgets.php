@@ -1,19 +1,18 @@
 <?php
-# -- BEGIN LICENSE BLOCK ----------------------------------
-# This file is part of Citations, a plugin for Dotclear 2.
-#
-# Copyright (c) 2007-2016 Olivier Le Bris
-# http://phoenix.cybride.net/
-# Contributor : Pierre Van Glabeke
-#
-# Licensed under the Creative Commons by-nc-sa license.
-# See LICENSE file or
-# http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
-# -- END LICENSE BLOCK ------------------------------------
+/**
+ * @brief Citations, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @author Olivier Le Bris, Pierre Van Glabeke and contributors
+ *
+ * @copyright http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
+ */
 if (!defined('DC_RC_PATH')) { return; }
 
 // initialisation du widget
-$core->addBehavior('initWidgets', array('dcWidgetCitations', 'widget'));
+dcCore::app()->addBehavior('initWidgets', array('dcWidgetCitations', 'widget'));
 class dcWidgetCitations
 {
 
@@ -22,7 +21,7 @@ class dcWidgetCitations
 	*/
     public static function widget($widgets)
     {
-		global $core, $plugin_name;
+		$plugin_name;
         try
         {
             $widgets->create(pluginCitations::pname(), __('Citations'), array('WidgetsCitations', 'widget'),
@@ -42,6 +41,6 @@ class dcWidgetCitations
         		$widgets->citations->setting('class',__('CSS class:'),'');
 		        $widgets->citations->setting('offline',__('Offline'),0,'check');
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
     }
 }

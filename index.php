@@ -1,15 +1,14 @@
 <?php
-# -- BEGIN LICENSE BLOCK ----------------------------------
-# This file is part of Citations, a plugin for Dotclear 2.
-#
-# Copyright (c) 2007-2016 Olivier Le Bris
-# http://phoenix.cybride.net/
-# Contributor : Pierre Van Glabeke
-#
-# Licensed under the Creative Commons by-nc-sa license.
-# See LICENSE file or
-# http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
-# -- END LICENSE BLOCK ------------------------------------
+/**
+ * @brief Citations, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @author Olivier Le Bris, Pierre Van Glabeke and contributors
+ *
+ * @copyright http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
+ */
 if (!defined('DC_CONTEXT_ADMIN')) exit;
 
 dcPage::check('usage,admin');
@@ -17,9 +16,9 @@ dcPage::check('usage,admin');
 $page_title = __('Citation manager');
 
 // chargement des librairies
-require_once dirname(__FILE__).'/class.plugin.php';
-require_once dirname(__FILE__).'/class.modele.php';
-require_once dirname(__FILE__).'/class.admin.php';
+require_once dirname(__FILE__).'/inc/class.plugin.php';
+require_once dirname(__FILE__).'/inc/class.modele.php';
+require_once dirname(__FILE__).'/inc/class.admin.php';
 
 // paramétrage des variables
 $plugin_name = __('Citations');
@@ -58,10 +57,10 @@ switch ($plugin_op)
 	            pluginCitations::Inactivate();
 
 			// notification de modification au blog et redirection
-			$core->blog->triggerBlog();
+			dcCore::app()->blog->triggerBlog();
 			pluginCitations::redirect(pluginCitations::admin().'&tab=settings&msg='.rawurldecode(__('Settings updated.')));
 		}
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 	break;
 
@@ -74,7 +73,7 @@ switch ($plugin_op)
 	//    {
 	//		$msg = pluginCitations::htmlNewVersion(true);
 	//	}
-	//    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	//    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	//}
 	//break;
 
@@ -98,7 +97,7 @@ switch ($plugin_op)
 				else $msg = __('Citation added.');
 			}
 		}
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 	break;
 
@@ -129,7 +128,7 @@ switch ($plugin_op)
 				else $msg = __('Citation updated.');
 			}
 		}
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 	break;
 
@@ -149,7 +148,7 @@ switch ($plugin_op)
 	        if ($n <= 0) $msg = __('No citation deleted.');
 	        else $msg = __('Citation(s) successfully deleted.');
 		}
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 	break;
 
@@ -166,7 +165,7 @@ switch ($plugin_op)
 			adminCitations::Export( ($type=='blog') ? true : false );
 			$msg = __('Datas exported.');
 		}
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 	break;
 
@@ -183,7 +182,7 @@ switch ($plugin_op)
 			adminCitations::Import( ($type=='blog') ? true : false );
 			$msg = __('Datas imported.');
 		}
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 	break;
 
@@ -205,7 +204,7 @@ if (!empty($_GET['msg'])) $msg = (string) rawurldecode($_GET['msg']);
 <body><?php
 	echo dcPage::breadcrumb(
 		array(
-			html::escapeHTML($core->blog->name) => '',
+			html::escapeHTML(dcCore::app()->blog->name) => '',
 			'<span class="page-title">'.$page_title.'</span>' => ''
 		));
 if (!empty($msg)) {

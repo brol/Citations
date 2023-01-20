@@ -1,3 +1,6 @@
+2.0-dev - 21/01/2023 Pierre Van Glabeke
+* dc2.24
+
 1.9 - 06-12-2016 Pierre Van Glabeke
 * prise en compte de la table lors de l'exportation du blog
 * modifs html et css

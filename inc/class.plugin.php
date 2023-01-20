@@ -1,15 +1,14 @@
 <?php
-# -- BEGIN LICENSE BLOCK ----------------------------------
-# This file is part of Citations, a plugin for Dotclear 2.
-#
-# Copyright (c) 2007-2016 Olivier Le Bris
-# http://phoenix.cybride.net/
-# Contributor : Pierre Van Glabeke
-#
-# Licensed under the Creative Commons by-nc-sa license.
-# See LICENSE file or
-# http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
-# -- END LICENSE BLOCK ------------------------------------
+/**
+ * @brief Citations, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @author Olivier Le Bris, Pierre Van Glabeke and contributors
+ *
+ * @copyright http://creativecommons.org/licenses/by-nc-sa/2.0/fr/
+ */
 if (!defined('DC_RC_PATH')) {return;}
 
 class pluginCitations
@@ -108,13 +107,12 @@ class pluginCitations
 	*/
 	static public function Trigger()
 	{
-	    global $core;
         try
         {
-	        $blog = $core->blog;
+	        $blog = dcCore::app()->blog;
 			$blog->triggerBlog();
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 
 	/**
@@ -122,12 +120,11 @@ class pluginCitations
 	*/
 	static public function redirect($url)
 	{
-		global $core;
         try
         {
 			http::redirect($url);
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 
 	/**
@@ -135,15 +132,14 @@ class pluginCitations
 	*/
     static public function get($param, $global=false)
     {
-		global $core;
         try
         {
-	        $blog = $core->blog;
+	        $blog = dcCore::app()->blog;
 			$ns=self::ns();
 	        $settings = $blog->settings->$ns;
             return (string)$settings->get(self::prefix().$param);
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
     }
 
 	/**
@@ -151,16 +147,15 @@ class pluginCitations
 	*/
 	static public function exist($param)
 	{
-		global $core;
         try
         {
-	        $blog = $core->blog;
+	        $blog = dcCore::app()->blog;
 			$ns=self::ns();
 	        $settings = $blog->settings->$ns;
             if (isset($settings->$param)) return true;
 			else return false;
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
 	}
 
 	/**
@@ -168,16 +163,15 @@ class pluginCitations
 	*/
     static public function setS($param, $val, $global=false)
     {
-		global $core;
         try
         {
-	        $blog = $core->blog;
+	        $blog = dcCore::app()->blog;
 			$ns=self::ns();
             $blog->settings->addNamespace($ns);
 	        $settings = $blog->settings->$ns;
             $settings->put((string)self::prefix().$param, (string)$val, 'string', null, true, $global);
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
     }
 
 	/**
@@ -185,16 +179,15 @@ class pluginCitations
 	*/
     static public function setI($param, $val, $global=false)
     {
-		global $core;
         try
         {
-	        $blog = $core->blog;
+	        $blog = dcCore::app()->blog;
 			$ns=self::ns();
             $blog->settings->addNamespace($ns);
 	        $settings = $blog->settings->$ns;
             $settings->put((string)self::prefix().$param, (integer)$val, 'integer', null, true, $global);
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
     }
 
 	/**
@@ -202,16 +195,15 @@ class pluginCitations
 	*/
     static public function setB($param, $val, $global=false)
     {
-		global $core;
         try
         {
-	        $blog = $core->blog;
+	        $blog = dcCore::app()->blog;
 			$ns=self::ns();
             $blog->settings->addNamespace($ns);
 	        $settings = $blog->settings->$ns;
             $settings->put((string) self::prefix().$param, (boolean)$val, 'boolean', null, true, $global);
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
     }
 
 	/**
@@ -219,16 +211,15 @@ class pluginCitations
 	*/
     static public function delete($param)
     {
-		global $core;
         try
         {
-	        $blog = $core->blog;
+	        $blog = dcCore::app()->blog;
 			$ns=self::ns();
             $blog->settings->addNamespace($ns);
 	        $settings = $blog->settings->$ns;
             $settings->drop((string)self::prefix().$param);
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
     }
 
 	/**
@@ -347,7 +338,6 @@ class pluginCitations
 	*/
     static protected function tag($tag)
     {
-		global $core;
 		try
 		{
 	        if ($tag == null) return null;
@@ -355,7 +345,7 @@ class pluginCitations
 	        else if (!array_key_exists($tag, self::$remotelines)) return null;
 	        else return (string) self::$remotelines[$tag];
 		}
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
     }
 
 	/**
@@ -363,7 +353,6 @@ class pluginCitations
 	*/
     static public function readUpdate()
     {
-		global $core;
         try
         {
 	        if (!ini_get('allow_url_fopen'))
@@ -389,7 +378,7 @@ class pluginCitations
                 }
             }
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
     }
 
 	/** ==================================================
@@ -408,13 +397,12 @@ class pluginCitations
 	*/
     static protected function getInfo($info)
     {
-		global $core;
 		try
 		{
-			$plugins = $core->plugins;
+			$plugins = dcCore::app()->plugins;
 			return $plugins->moduleInfo(self::pname(), $info);
 		}
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
     }
 
 	/**
@@ -517,12 +505,11 @@ class pluginCitations
 	*/
     static public function dbVersion()
     {
-		global $core;
         try
         {
-            return (string)$core->getVersion('core');
+            return (string)dcCore::app()->getVersion('core');
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
     }
 
 	/**
@@ -530,14 +517,13 @@ class pluginCitations
 	*/
 	static public function isRelease()
     {
-		global $core;
         try
         {
 	        $version = (string)self::dbVersion();
 	        if (!stripos($version, 'beta')) return true;
 	        else return false;
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
     }
 
 	/**
@@ -545,14 +531,13 @@ class pluginCitations
 	*/
     static public function isBeta($sub = '6')
     {
-		global $core;
         try
         {
 	        $version = (string)self::dbVersion();
 			if (stripos($version, 'beta'.$sub)) return true;
 	        else return false;
         }
-	    catch (Exception $e) { $core->error->add($e->getMessage()); }
+	    catch (Exception $e) { dcCore::app()->error->add($e->getMessage()); }
     }
 
 	/**

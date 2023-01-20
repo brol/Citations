@@ -1,29 +1,29 @@
 # Language: Français
-# Module: citations - 1.9
-# Date: 2016-12-06 15:54:32
-# Translated with translater 2016.08.20
+# Module: citations - 2.0-dev
+# Date: 2023-01-20 16:59:55
+# Author: Pierre Van Glabeke
+# Translated with translater 2022.12.26
 
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
-"Project-Id-Version: citations 1.9\n"
+"Project-Id-Version: citations 2.0-dev\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-12-06T15:54:32+00:00\n"
-"Last-Translator: brol\n"
+"PO-Revision-Date: 2023-01-20T16:59:55+00:00\n"
+"Last-Translator: Pierre Van Glabeke\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: _admin.php:26
-#: index.php:17
+#: _admin.php:27
+#: index.php:16
 msgid "Citation manager"
 msgstr "Gestionnaire de citations"
 
-#: _admin.php:58
-#: _widgets.php:28
-#: _widgets.php:33
-#: index.php:25
+#: _admin.php:64
+#: _widgets.php:27
+#: index.php:24
 msgid "Citations"
 msgstr "Citations"
 
@@ -31,122 +31,120 @@ msgstr "Citations"
 msgid "Unable to install Citations."
 msgstr "Impossible d'installer Citations."
 
-#: _widgets.php:30
+#: _widgets.php:29
 msgid "Displaying a random quote"
 msgstr "Affichage aléatoire d'une citation"
 
-#: class.admin.php:201
+#: inc/class.admin.php:194
 msgid "Plugin state"
 msgstr "Etat du plugin"
 
-#: class.admin.php:207
+#: inc/class.admin.php:200
 msgid "Enable Citation manager"
 msgstr "Activer le Gestionnaire de citations"
 
-#: class.admin.php:217
-#: index.php:215
+#: inc/class.admin.php:210
+#: index.php:214
 msgid "Settings"
 msgstr "Paramètres"
 
-#: class.admin.php:223
+#: inc/class.admin.php:216
 msgid "Defaults"
 msgstr "Défauts"
 
-#: class.admin.php:230
+#: inc/class.admin.php:223
 msgid "Import/Export datas"
 msgstr "Import/Export des données"
 
-#: class.admin.php:235
+#: inc/class.admin.php:228
 msgid "This blog only"
 msgstr "Pour ce blog uniquement"
 
-#: class.admin.php:236
+#: inc/class.admin.php:229
 msgid "All datas"
 msgstr "Toutes les données"
 
-#: class.admin.php:258
+#: inc/class.admin.php:251
 msgid "No citation for this blog."
 msgstr "Aucune citation pour ce blog."
 
-#: class.admin.php:283
-#: class.admin.php:283
+#: inc/class.admin.php:275
 msgid "Edit citation"
 msgstr "Modifier la citation"
 
-#: class.admin.php:325
+#: inc/class.admin.php:316
 msgid "Edit a citation"
 msgstr "Modifier une citation"
 
-#: class.admin.php:336
+#: inc/class.admin.php:327
 msgid "Add a citation"
 msgstr "Ajouter une citation"
 
-#: class.admin.php:342
+#: inc/class.admin.php:333
 msgid "Not allowed."
 msgstr "Non autorisé."
 
-#: class.plugin.php:492
+#: inc/class.plugin.php:480
 msgid "No new version available."
 msgstr "Pas de nouvelle version."
 
-#: class.plugin.php:495
+#: inc/class.plugin.php:483
 msgid "New version available:"
 msgstr "Nouvelle version disponible :"
 
-#: class.plugin.php:499
+#: inc/class.plugin.php:487
 msgid "Read the post."
 msgstr "Lire le billet."
 
-#: class.plugin.php:499
+#: inc/class.plugin.php:487
 msgid "post"
 msgstr "billet"
 
-#: class.plugin.php:500
+#: inc/class.plugin.php:488
 msgid "Installer."
 msgstr "Installeur."
 
-#: index.php:62
+#: index.php:61
 msgid "Settings updated."
 msgstr "Paramètres mis à jour."
 
-#: index.php:94
-#: index.php:123
+#: index.php:93
 msgid "Missing informations."
 msgstr "Informations manquantes."
 
-#: index.php:97
+#: index.php:96
 msgid "Error adding citation."
 msgstr "Erreur lors de l'ajout de la citation."
 
-#: index.php:98
+#: index.php:97
 msgid "Citation added."
 msgstr "Citation ajoutée."
 
-#: index.php:128
+#: index.php:127
 msgid "Error updating citation."
 msgstr "Erreur lors de la modification de la citation."
 
-#: index.php:129
+#: index.php:128
 msgid "Citation updated."
 msgstr "Citation mise à jour."
 
-#: index.php:149
+#: index.php:148
 msgid "No citation deleted."
 msgstr "Aucune citation supprimée"
 
-#: index.php:150
+#: index.php:149
 msgid "Citation(s) successfully deleted."
 msgstr "Citation(s) supprimée(s) avec succès."
 
-#: index.php:167
+#: index.php:166
 msgid "Datas exported."
 msgstr "Données exportées."
 
-#: index.php:184
+#: index.php:183
 msgid "Datas imported."
 msgstr "Données importées."
 
-#: index.php:216
+#: index.php:215
 msgid "List"
 msgstr "Liste"
 

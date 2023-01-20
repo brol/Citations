@@ -29,7 +29,7 @@ class adminCitations
         {
 			// création du schéma de la table
 		    $_s = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
-		    require dirname(__FILE__).'/db-schema.php';
+		    require dirname(__FILE__).'/inc/db-schema.php';
 
 		    $si = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
 		    $changes = $si->synchronize($_s);

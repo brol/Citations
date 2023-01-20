@@ -190,8 +190,8 @@ class tabsCitations
 			if ($auth->isSuperAdmin()) $sadmin = true;
 
 	        echo
-			'<div class="fieldset">' .
-			'<h4>'.__('Plugin state').'</h4>'.
+			'<div>' .
+			'<h3>'.__('Plugin state').'</h3>'.
 				'<form action="plugin.php" method="post" name="state">'.
            '<p>'.dcCore::app()->formNonce().
 					form::hidden(array('p'),pluginCitations::pname()).
@@ -206,8 +206,8 @@ class tabsCitations
 			'</div>'.
 
 			// gestion des paramètres du plugin
-			'<div class="fieldset" style="display:none;">' .
-			'<h4>'.__('Settings').'</h4>'.
+			'<div style="display:none;">' .
+			'<h3>'.__('Settings').'</h3>'.
 				'<form action="plugin.php" method="post" name="settings">'.
            '<p>'.dcCore::app()->formNonce().
 					form::hidden(array('p'),pluginCitations::pname()).
@@ -219,8 +219,8 @@ class tabsCitations
 			'</div>'.
 
 			// export/import pour le blog
-			'<div class="fieldset" style="display:none;">' .
-			'<h4>'.__('Import/Export datas').'</h4>'.
+			'<div style="display:none;">' .
+			'<h3>'.__('Import/Export datas').'</h3>'.
 				'<form action="plugin.php" method="post" name="impexp">'.
 					'<p>'.dcCore::app()->formNonce().
 					form::hidden(array('p'),pluginCitations::pname()).
@@ -333,8 +333,8 @@ class tabsCitations
 			if (!$allowed) echo __('Not allowed.');
 			else
 		        echo
-				'<div class="fieldset">'.
-					'<h4>'.$form_title.'</h4>'.
+				'<div>'.
+					'<h3>'.$form_title.'</h3>'.
 					'<form action="plugin.php" method="post" name="addedit">'.
 						'<p>'.dcCore::app()->formNonce().
 						form::hidden(array('p'),pluginCitations::pname()).

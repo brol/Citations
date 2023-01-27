@@ -23,7 +23,7 @@ class CitationsBehaviors
 
 		$url = dcCore::app()->blog->getQMarkURL().'pf='.basename(dirname(__FILE__)).'/citations.css';
 
-		echo '<link rel="stylesheet" media="screen" type="text/css" href="'.$url.'" />';
+		echo '<link rel="stylesheet" media="screen" type="text/css" href="'.$url.'" />'."\n";
 	}
 }
 

@@ -32,7 +32,7 @@ dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
         $_SERVER['REQUEST_URI']
     ),
     dcCore::app()->auth->check(dcCore::app()->auth->makePermissions([
-		dcAuth::PERMISSION_USAGE,
+				dcAuth::PERMISSION_USAGE,
         dcAuth::PERMISSION_CONTENT_ADMIN,
     ]), dcCore::app()->blog->id)
 );
